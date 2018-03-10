@@ -92,20 +92,6 @@ def checkLetter(user, letter):
     else:
         return 1
 
-
-def writeMessage(user_id, message):
-    vk.method('messages.send', {'user_id': user_id, 'message': message})
-
-
-def writeMessageChat(user_id, message):
-    vk.method('messages.send', {'chat_id': user_id, 'message': message})
-
-
-def writeMessageSticker(user_id, sticker):
-    vk.method('messages.send', {'user_id': user_id, 'sticker_id': sticker})
-
-
-
 def addUser(userid, username):
     cursor.execute("INSERT INTO usersid (userid, name) VALUES ('%s','%s')" % (userid, username))
     con.commit()
