@@ -52,7 +52,7 @@ sayNote = ['''Мой создатель решил, что я много зна�
            5. Узнать свою статистику в играх (статистика).\n
            6. Попращаться (пока, до свидания, покеда, покасики, пок).\n
            Чтобы начать общение с ботом - поздаровайся ;-)''']
-sayInfo = ['Если хочешь узнать побольше обо мне, напиши "справка"']
+sayInfo = ['\nЕсли хочешь узнать побольше обо мне, напиши "справка"']
 
 
 con = sqlite3.connect('username.db')
@@ -155,16 +155,13 @@ def messageReply(users, userId, messageUser):
         if messageUser in setHello:
             users[userId]['Hello'] = 1
             if 4 < hour.hour < 12:
-                return ( random.choice(sayRandomGoodMorning))
-                return ( sayInfo)
+                return ( random.choice(sayRandomGoodMorning) + sayInfo[0])
             elif 12 <= hour.hour < 18:
-                return (
-                             random.choice(sayRandomHelloKnowUser) + users[userId]['name'] + '! '
-                             + random.choice(sayRandomHelloEmojiKnowUser))
-                return ( sayInfo)
+                return (random.choice(sayRandomHelloKnowUser) + users[userId]['name'] + '! '
+                             + random.choice(sayRandomHelloEmojiKnowUser) + sayInfo[0])
             elif 00 <= hour.hour < 4 & 21 < hour.hour <= 00:
                 return ( random.choice(sayRandomHelloGoodNight) + users[userId]['name'])
-                return ( sayInfo)
+
             else:
                 return ( random.choice(sayRandomGoodEveningKnowUser) + users[userId]['name'] + '! '
                              + random.choice(sayRandomGoodbyeEmojiKnowUser))

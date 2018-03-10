@@ -43,7 +43,7 @@ while True:
             messageUser = response['items'][0]['body'].lower()
             try:
                 writeMessage(userId, MP.messageReply(users, userId, messageUser))
-            except:
-                writeMessage(userId,'Это сообщение сломало мне мозг (')
+            except Exception as e:
+                writeMessage(userId, e)
     time.sleep(1)
 con.close()
